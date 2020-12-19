@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hs.mytravel.user.UserMapper">
+	<insert id="insUser" parameterType="UserVO">
+		INSERT INTO t_user
+		(u_id, u_pw, u_nm, salt)
+		VALUES
+		(#{u_id}, #{u_pw}, #{u_nm} , #{salt})
+	</insert>
+</mapper>
