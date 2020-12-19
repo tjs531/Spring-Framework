@@ -6,26 +6,29 @@
 <div id="form">
 <div class="logo">
 <h1 class="text-center head">Join</h1>
+<div class="msg">${msg}</div>
 </div>
 	<form id="frm" class="frm" action="/user/join" method="post" onsubmit="return chk()">
 		<div class="form-item">
+		<div id="idChkResult" class="msg"></div>
 			<p class="formLabel">ID</p>
-			<input type="text" name="id" id="id" class="form-style" autocomplete="off"/>
+			<input type="text" name="u_id" id="id" class="form-style" autocomplete="off"/>
+			<button type="button" onclick="chkId()">아이디 중복체크</button>
 		</div>
 		<div class="form-item">
 			<p class="formLabel">Password</p>
-			<input type="password" name="password" id="password" class="form-style" />
+			<input type="password" name="u_pw" id="password" class="form-style" />
 			<!-- <div class="pw-view"><i class="fa fa-eye"></i></div> -->
 		</div>
 		<div class="form-item">
 			<p class="formLabel">Password</p>
-			<input type="password" name="password2" id="password2" class="form-style" />
+			<input type="password" name="u_pw2" id="password2" class="form-style" />
 			<!-- <div class="pw-view"><i class="fa fa-eye"></i></div> -->
 		</div>
-		<div class="form-item">
+		<!-- <div class="form-item">
 			<p class="formLabel">Name</p>
 			<input type="text" name="name" id="name" class="form-style" autocomplete="off"/>
-		</div>
+		</div>-->
 		<div class="form-item">
 		<input type="submit" class="login pull-right" value="Register">
 		<div class="clear-fix"></div>
@@ -37,10 +40,10 @@
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 	<script>
 		function chkId() {
-			const user_id = frm.user_id.value
+			const user_id = id.value
 			
 			axios.post('/user/ajaxIdChk', {
-				user_id: user_id
+				u_id : user_id
 			}).then(function(res) {
 				console.log(res)
 				if(res.data == '2') { //아이디 없음
@@ -67,10 +70,10 @@
 				frm.password.focus();
 				return false;
 			} 
-			if(frm.nm.value == ''){		
+			/*if(frm.nm.value == ''){		
 				alert('이름을 입력해주세요');
 				frm.name.focus();
 				return false;
-			} 
+			} */
 		}
 	</script>

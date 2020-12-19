@@ -3,8 +3,16 @@
 <mapper namespace="com.hs.mytravel.user.UserMapper">
 	<insert id="insUser" parameterType="UserVO">
 		INSERT INTO t_user
-		(u_id, u_pw, u_nm, salt)
+		(u_id, u_pw, salt)
 		VALUES
-		(#{u_id}, #{u_pw}, #{u_nm} , #{salt})
+		(#{u_id}, #{u_pw}, #{salt})
 	</insert>
+	
+	<select id="selUser" parameterType="UserVO" resultType="UserPARAM">
+		SELECT u_no, u_id, u_pw, salt, r_dt
+		FROM t_user
+		WHERE 
+		<if test="u_no > 0"> u_no = #{u_no}</if>
+		<if test="u_id != null and u_id != ''"> u_id = #{u_id}</if>
+	</select>
 </mapper>
