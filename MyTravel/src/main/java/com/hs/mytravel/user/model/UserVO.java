@@ -4,7 +4,7 @@ public class UserVO {
 	private int u_no;
 	private String u_id;
 	private String u_pw;
-	private String u_nm;
+	//private String u_nm;
 	private String salt;
 	private String r_dt;
 	
@@ -27,12 +27,12 @@ public class UserVO {
 	public void setU_pw(String u_pw) {
 		this.u_pw = u_pw;
 	}
-	public String getU_nm() {
+	/*public String getU_nm() {
 		return u_nm;
 	}
 	public void setU_nm(String u_nm) {
 		this.u_nm = u_nm;
-	}
+	}*/
 	public String getSalt() {
 		return salt;
 	}
