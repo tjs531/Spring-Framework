@@ -37,6 +37,7 @@
 	<script>
 		
 		var test2=0;
+		var test3 = 0;
 		var id_chk = 0;
 		var used_id = 0;
 		
