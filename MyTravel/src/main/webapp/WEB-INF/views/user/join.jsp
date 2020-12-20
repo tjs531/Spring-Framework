@@ -36,6 +36,7 @@
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 	<script>
 	
+		var test =0 ;
 		var id_chk = 0;
 		var used_id = 0;
 		
