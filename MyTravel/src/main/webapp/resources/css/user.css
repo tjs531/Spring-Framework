@@ -1,6 +1,6 @@
 @charset "UTF-8";
 body{
-	 background: url(http://www.namparang.kr/images/sub/road/road14_top.jpg) no-repeat center center fixed; 
+	 background: url(https://newsimg.sedaily.com/2020/06/12/1Z3ZZOKI8W_1.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -8,6 +8,16 @@ body{
   font-family:'HelveticaNeue','Arial', sans-serif;
 
 }
+
+#btnchkid {
+	float: right;
+	margin-right: 30px;
+	border: none;
+	background: white;
+	color: cornflowerblue;
+	font-family: monospace;
+}
+
 a{color:#58bff6;text-decoration: none;}
 a:hover{color:#aaa; }
 .pull-right{float: right;}
@@ -90,3 +100,4 @@ input[type="submit"].login{
 }
 input[type="submit"].login:hover{background-color: #fff; border:1px solid #55b1df; color:#55b1df; cursor:pointer;}
 input[type="submit"].login:focus{outline: none;}
+

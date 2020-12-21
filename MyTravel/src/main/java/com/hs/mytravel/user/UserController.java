@@ -22,7 +22,6 @@ public class UserController {
 	@Autowired
 	private UserService service;
 	
-
 	@RequestMapping(value="/login", method = RequestMethod.GET)
 	public String login(Model model) {
 		model.addAttribute("title", "로그인");
@@ -34,6 +33,7 @@ public class UserController {
 	public String login(UserPARAM param, HttpSession hs, RedirectAttributes ra) {
 		int result = service.login(param);
 		
+		//로그인 성공 시, 로그인 정보 세션에 저장
 		if(result == Const.SUCCESS) {
 			hs.setAttribute(Const.LOGIN_USER, param);
 			return "redirect:/";
