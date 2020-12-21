@@ -13,7 +13,7 @@
 		
 			<p class="formLabel">ID</p>
 			<input type="text" name="u_id" id="id" class="form-style" autocomplete="off"/>
-			<button type="button" onclick="chkId()">아이디 중복체크</button>
+			<button type="button" id="btnchkid" onclick="chkId()">아이디 중복체크</button>
 		</div>
 		<div class="form-item">
 			<p class="formLabel">Password</p>
@@ -36,17 +36,17 @@
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 	<script>
 		
-		var test2=0;
-		var test3 = 0;
-
-	
-		var test =0 ;
-
 		var id_chk = 0;
 		var used_id = 0;
 		
 		function chkId() {
 			const user_id = id.value
+			
+			if(frm.id.value.length < 5) {
+				alert('아이디는 5글자 이상이어야합니다.');
+				frm.id.focus();
+				return false;
+			} 
 			
 			axios.post('/user/ajaxIdChk', {
 				u_id : user_id
@@ -57,7 +57,7 @@
 					idChkResult.innerText = '사용할 수 있는 아이디입니다.'
 				} else if(res.data == '3') { //아이디 중복됨
 					used_id=1;
-					idChkResult.innerText = '이미 사용중입니다.'
+					idChkResult.innerText = '이미 사용중인 아이디입니다.'
 				}
 			})
 			

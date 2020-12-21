@@ -16,7 +16,7 @@
   
     <link rel="stylesheet" type="text/css" href="/resources/css/user.css">
   <!-- Bootstrap core CSS -->
-  <link href="/resources/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/resources/css/bootstrap.css" rel="stylesheet">
   <!-- Custom styles for this template -->
   <link href="/resources/css/business-frontpage.css" rel="stylesheet">
  
