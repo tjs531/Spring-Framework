@@ -14,7 +14,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+            <a class="nav-link" href="/map/">Make root</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/user/login">Login</a>

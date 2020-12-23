@@ -64,7 +64,7 @@
     </div>
 </div>
 
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b9b2031cddc67ad3e6f9d514effc09ad"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f9819b4e9bdb6d86ec1f7f9f50731e58&libraries=services,clusterer,drawing"></script>
 <script>
 // 마커를 담을 배열입니다
 var markers = [];
