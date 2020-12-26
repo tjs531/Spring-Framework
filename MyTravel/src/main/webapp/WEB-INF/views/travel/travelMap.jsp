@@ -43,9 +43,13 @@
 #pagination {margin:10px auto;text-align: center;}
 #pagination a {display:inline-block;margin-right:10px;}
 #pagination .on {font-weight: bold; cursor: default;color:#777;}
+#save_zone {display:inline-block; float:left; width:20%;}
+.map_container {display:flex; width:100%;}
 </style>
 </head>
 <body>
+<div class="map_container">
+<div id="save_zone" class="bg_white">루트</div>
 <div class="map_wrap">
     <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
 
@@ -62,6 +66,7 @@
         <ul id="placesList"></ul>
         <div id="pagination"></div>
     </div>
+</div>
 </div>
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f9819b4e9bdb6d86ec1f7f9f50731e58&libraries=services,clusterer,drawing"></script>
@@ -85,7 +90,7 @@ var ps = new kakao.maps.services.Places();
 var infowindow = new kakao.maps.InfoWindow({zIndex:1});
 
 // 키워드로 장소를 검색합니다
-searchPlaces();
+//searchPlaces();
 
 // 키워드 검색을 요청하는 함수입니다
 function searchPlaces() {
