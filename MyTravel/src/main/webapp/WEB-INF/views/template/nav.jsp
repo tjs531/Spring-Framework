@@ -1,4 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 
 
 <!-- Navigation -->
@@ -19,22 +21,19 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/map/">Make root</a>
+            <a class="nav-link" ${loginUser != null ? 'href="/map/"' : 'onclick="chk_login()"' }>Make root</a>
           </li>
-          
+         
           <c:if test="${loginUser == null}">
           	<li class="nav-item">
             	<a class="nav-link" href="/user/login">Login</a>
-          	</li>
-          	<li class="nav-item">
-            	<a class="nav-link" href="#">Join</a>
           	</li>
           
           </c:if>
           
           <c:if test="${loginUser != null}">
           	<li class="nav-item">
-            	<a class="nav-link" href="/user/logout">Logout</a>
+            	<a class="nav-link" onclick="chk_logout()">Logout</a>
           	</li>
           </c:if>
           
@@ -43,3 +42,17 @@
     </div>
   </nav>
 
+<script>
+	
+	function chk_login() {
+		alert('로그인이 필요해요');
+	}
+	
+	function chk_logout() {
+		if(confirm('로그아웃 하시겠습니까?')) { 
+			location.href = '/user/logout';
+		}
+	}
+	
+
+</script>

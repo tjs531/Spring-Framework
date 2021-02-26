@@ -3,7 +3,7 @@
 
 	<div id="form">
 		<div class="logo">
-			<h1 class="text-center head">The form</h1>
+			<h1 class="text-center head">Login</h1>
 		</div>
 		<div class="msg">${data.msg}</div>
 		
