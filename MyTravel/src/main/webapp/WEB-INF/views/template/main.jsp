@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
 
   <!-- Header -->
   <header class="bg-primary py-5 mb-5">
@@ -5,7 +8,7 @@
       <div class="row h-100 align-items-center">
         <div class="col-lg-12">
           <h1 class="display-4 text-white mt-5 mb-2">Make your Travel</h1>
-          <p class="lead mb-5 text-white-50">Let's travel even if we can't go now. Make some plans!</p>
+          <p class="lead mb-5 text-white-50">Let's travel even if we can't go now. Make some plans! <br> 일단 짐싸!</p>
         </div>
       </div>
     </div>
