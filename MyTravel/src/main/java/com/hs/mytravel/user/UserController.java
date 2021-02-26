@@ -51,6 +51,14 @@ public class UserController {
 		return "redirect:/user/login";
 	}
 	
+	
+	@RequestMapping(value="/logout", method = RequestMethod.GET)
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return "redirect:/";
+	}
+	
+	
 	@RequestMapping(value="/join", method = RequestMethod.GET)
 	public String join(Model model) {
 		model.addAttribute("title", "회원가입");

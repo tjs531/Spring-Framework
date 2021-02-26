@@ -1,6 +1,8 @@
 @charset "UTF-8";
 body{
-	 background: url(https://newsimg.sedaily.com/2020/06/12/1Z3ZZOKI8W_1.jpg) no-repeat center center fixed; 
+	
+	/* background: url(https://newsimg.sedaily.com/2020/06/12/1Z3ZZOKI8W_1.jpg) no-repeat center center fixed;  */
+	
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -101,3 +103,4 @@ input[type="submit"].login{
 input[type="submit"].login:hover{background-color: #fff; border:1px solid #55b1df; color:#55b1df; cursor:pointer;}
 input[type="submit"].login:focus{outline: none;}
 
+.welcome_msg { color: steelblue; }
