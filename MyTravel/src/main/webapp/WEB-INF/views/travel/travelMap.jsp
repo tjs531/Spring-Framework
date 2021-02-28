@@ -74,19 +74,22 @@
 // 마커를 담을 배열입니다
 var markers = [];
 
-//마커를 표시할 위치와 title 객체 배열입니다 
-//여기에 선택한 장소 담기 
-var selPositions = [];
-
 
 
 /////선택된 장소 저장   
 
 
-//마커 이미지의 이미지 주소입니다
-var selimageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
 
-function makeSelmarker(){
+//마커를 표시할 위치와 title 객체 배열입니다 
+//여기에 선택한 장소 담기 
+var selPositions = [];
+
+
+function addSelmarker(){
+
+	//마커 이미지의 이미지 주소입니다
+	var selimageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
+	
 	for (var i = 0; i < selPositions.length; i ++) {
 	
 		// 마커 이미지의 이미지 크기 입니다
@@ -102,10 +105,19 @@ function makeSelmarker(){
 	    	title : selPositions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
 	    	image : selmarkerImage // 마커 이미지 
 		});
+		
+		// 마커에 이벤트를 등록하는 함수 만들고 즉시 호출하여 클로저를 만듭니다
+	    // 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
+	    (function(marker) {
+	        
+	        kakao.maps.event.addListener(marker, 'click', function() {
+	        	marker.setMap(null);
+	        });
+	    })(selMarker);
 	}
 }
 
-makeSelmarker();
+addSelmarker();
 
 
 
@@ -226,10 +238,9 @@ function displayPlaces(places) {
                 selPositions.push(place);
                 
                 infowindow.close();
-                marker.setMap(null);
+                //marker.setMap(null);
                 
-                
-                makeSelmarker();
+                addSelmarker();
                 
              	// 마커를 생성합니다
               /*  var selMarker = new kakao.maps.Marker({
@@ -293,15 +304,15 @@ function getListItem(index, places) {
 }
 
 // 마커를 생성하고 지도 위에 마커를 표시하는 함수입니다
-function addMarker(position, idx, title) {
-    var imageSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png', // 마커 이미지 url, 스프라이트 이미지를 씁니다
-        imageSize = new kakao.maps.Size(36, 37),  // 마커 이미지의 크기
-        imgOptions =  {
+function addMarker(position, idx, title, imageSrc, imageSize, imgOptions) {
+    var imageSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png'; // 마커 이미지 url, 스프라이트 이미지를 씁니다
+    var imageSize = new kakao.maps.Size(36, 37);  // 마커 이미지의 크기
+    var imgOptions =  {
             spriteSize : new kakao.maps.Size(36, 691), // 스프라이트 이미지의 크기
             spriteOrigin : new kakao.maps.Point(0, (idx*46)+10), // 스프라이트 이미지 중 사용할 영역의 좌상단 좌표
             offset: new kakao.maps.Point(13, 37) // 마커 좌표에 일치시킬 이미지 내에서의 좌표
-        },
-        markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imgOptions),
+        };
+    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imgOptions),
             marker = new kakao.maps.Marker({
             position: position, // 마커의 위치
             image: markerImage 
@@ -360,7 +371,6 @@ function displayInfowindow(marker, title) {
 
     infowindow.setContent(content);
     infowindow.open(map, marker);
-    
 }
 
  // 검색결과 목록의 자식 Element를 제거하는 함수입니다
@@ -370,11 +380,7 @@ function removeAllChildNods(el) {
     }
 }
  
- 
- 
- 
 
- 
 </script>
 </body>
 </html>
