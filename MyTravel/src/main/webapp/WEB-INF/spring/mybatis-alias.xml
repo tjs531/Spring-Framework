@@ -4,5 +4,6 @@
 	<typeAliases>
 		<typeAlias type="com.hs.mytravel.user.model.UserVO" alias="UserVO" />
 		<typeAlias type="com.hs.mytravel.user.model.UserPARAM" alias="UserPARAM" />
+		<typeAlias type="com.hs.mytravel.place.model.PlaceVO" alias="PlaceVO" />
 	</typeAliases>
 </configuration>

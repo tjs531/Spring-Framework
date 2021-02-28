@@ -21,7 +21,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" ${loginUser != null ? 'href="/map/"' : 'onclick="chk_login()"' }>Make root</a>
+            <a class="nav-link" ${loginUser != null ? 'href="/place/"' : 'onclick="chk_login()"' }>Make root</a>
           </li>
          
           <c:if test="${loginUser == null}">
