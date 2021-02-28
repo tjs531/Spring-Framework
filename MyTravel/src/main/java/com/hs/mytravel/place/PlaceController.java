@@ -1,4 +1,4 @@
-package com.hs.mytravel.map;
+package com.hs.mytravel.place;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -7,11 +7,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping("/map")
-public class MapController {
+@RequestMapping("/place")
+public class PlaceController {
 	
-	//@Autowired
-	//private MapService service;
+	@Autowired
+	private PlaceService service;
 	
 	@RequestMapping(value="/", method = RequestMethod.GET)
 	public String login(Model model) {
@@ -19,4 +19,6 @@ public class MapController {
 		model.addAttribute("view", "/travel/travelMap");
 		return "home";
 	}
+	
+	
 }
