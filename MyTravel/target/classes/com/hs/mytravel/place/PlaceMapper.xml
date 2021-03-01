@@ -3,9 +3,9 @@
 <mapper namespace="com.hs.mytravel.place.PlaceMapper">
 	<insert id="insPlace" parameterType="PlaceVO">
 		INSERT INTO t_place
-		(place_no, place_name, p_lat, p_long, p_arrival, p_leave)
+		(place_name, p_lat, p_long)
 		VALUES 
-		(#{place_no}, #{place_name}, #{p_lat}, #{p_long}, #{p_arrival}, #{p_leave})
+		(#{place_name}, #{p_lat}, #{p_long})
 	</insert>
 	
 </mapper>
