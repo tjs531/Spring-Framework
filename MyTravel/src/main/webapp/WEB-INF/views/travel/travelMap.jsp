@@ -69,6 +69,7 @@
 </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f9819b4e9bdb6d86ec1f7f9f50731e58&libraries=services,clusterer,drawing"></script>
 <script>
 // 마커를 담을 배열입니다
@@ -82,7 +83,7 @@ var markers = [];
 
 //마커를 표시할 위치와 title 객체 배열입니다 
 //여기에 선택한 장소 담기 
-var selPositions = [];
+var selPositions = {};
 
 
 function addSelmarker(){
@@ -90,7 +91,7 @@ function addSelmarker(){
 	//마커 이미지의 이미지 주소입니다
 	var selimageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
 	
-	for (var i = 0; i < selPositions.length; i ++) {
+	//for (var i = 0; i < selPositions.length; i ++) {
 	
 		// 마커 이미지의 이미지 크기 입니다
 		var imageSize = new kakao.maps.Size(24, 35); 
@@ -101,20 +102,22 @@ function addSelmarker(){
 		// 마커를 생성합니다
 		var selMarker = new kakao.maps.Marker({
 	    	map: map, // 마커를 표시할 지도
-	   		position: selPositions[i].latlng, // 마커를 표시할 위치
-	    	title : selPositions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+	   		//position: selPositions[i].latlng, // 마커를 표시할 위치
+	    	//title : selPositions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+	    	position: selPositions.latlng,
+	    	title : selPositions.title,
 	    	image : selmarkerImage // 마커 이미지 
 		});
 		
 		// 마커에 이벤트를 등록하는 함수 만들고 즉시 호출하여 클로저를 만듭니다
 	    // 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
-	    (function(marker) {
+	    //(function(marker) {
 	        
-	        kakao.maps.event.addListener(marker, 'click', function() {
-	        	marker.setMap(null);
+	        kakao.maps.event.addListener(selMarker, 'click', function() {
+	        	selMarker.setMap(null);
 	        });
-	    })(selMarker);
-	}
+	    //})(selMarker);
+	//}
 }
 
 addSelmarker();
@@ -235,20 +238,25 @@ function displayPlaces(places) {
             	 	latlng: new kakao.maps.LatLng(places[m].y, places[m].x)
             	}
                 
-                selPositions.push(place);
+                //selPositions.push(place);
+                
+                selPositions = place;
                 
                 infowindow.close();
-                //marker.setMap(null);
-                
                 addSelmarker();
+                /*private int place_no;
+	private String place_name;
+	private float p_lat;
+	private float p_long;*/
+                axios.post('/place/ajaxInsPlace', {
+    				place_name : title,
+    				p_lat : places[m].y,
+    				p_long : places[m].x
+    			}).then(function(res) {
+    				console.log(res)
+    				
+    			})
                 
-             	// 마커를 생성합니다
-              /*  var selMarker = new kakao.maps.Marker({
-                    map: map, // 마커를 표시할 지도
-                    position: place.latlng, // 마커를 표시할 위치
-                    title : place.title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
-                    image : selmarkerImage // 마커 이미지 
-                });*/
              	
             });
 
