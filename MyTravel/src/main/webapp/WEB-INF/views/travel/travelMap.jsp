@@ -248,10 +248,14 @@ function displayPlaces(places) {
 	private String place_name;
 	private float p_lat;
 	private float p_long;*/
-                axios.post('/place/ajaxInsPlace', {
-    				place_name : title,
-    				p_lat : places[m].y,
-    				p_long : places[m].x
+				console.log(title);
+	
+                axios.get('/place/ajaxInsPlace', {
+                	params: {
+    					place_name : title,
+    					p_lat : places[m].y,
+    					p_long : places[m].x
+    				}
     			}).then(function(res) {
     				console.log(res)
     				

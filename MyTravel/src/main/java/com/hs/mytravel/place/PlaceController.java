@@ -23,9 +23,10 @@ public class PlaceController {
 		return "home";
 	}
 	
-	@RequestMapping(value="/ajaxInsPlace", method = RequestMethod.POST)
+	@RequestMapping(value="/ajaxInsPlace")
 	@ResponseBody
 	public int ajaxInsPlace(PlaceVO vo) {
+		System.out.println(vo.getPlace_name());
 		return service.insPlace(vo);
 	}
 	
