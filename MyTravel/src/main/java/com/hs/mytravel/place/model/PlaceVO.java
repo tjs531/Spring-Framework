@@ -3,8 +3,8 @@ package com.hs.mytravel.place.model;
 public class PlaceVO {
 	private int place_no;
 	private String place_name;
-	private float p_lat;
-	private float p_long;
+	private double p_lat;
+	private double p_long;
 	private String p_arrival;
 	private String p_leave;
 	
@@ -20,16 +20,16 @@ public class PlaceVO {
 	public void setPlace_name(String place_name) {
 		this.place_name = place_name;
 	}
-	public float getP_lat() {
+	public double getP_lat() {
 		return p_lat;
 	}
-	public void setP_lat(long p_lat) {
+	public void setP_lat(double p_lat) {
 		this.p_lat = p_lat;
 	}
-	public float getP_long() {
+	public double getP_long() {
 		return p_long;
 	}
-	public void setP_long(long p_long) {
+	public void setP_long(double p_long) {
 		this.p_long = p_long;
 	}
 	public String getP_arrival() {
